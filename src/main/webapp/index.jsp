@@ -11,9 +11,10 @@
 <meta charset="utf-8">
 <title>Welcome</title>
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="<c:url value='/common/js/common.js'/>"></script>
 </head>
 <script>
-	function getMessage() {
+/* 	function getMessage() {
 		$.ajax({
 			method : "POST",
 			url : "<c:url value='/study/getMessage.html'/>",
@@ -24,7 +25,7 @@
 			},
 			success : result
 		});
-	}
+	} */
 
 	function result(data) {
 		alert(data.result);
@@ -33,8 +34,8 @@
 <body>
 	<c:url value="/study/showMessage.html" var="messageUrl" />
 	1. <a href="${messageUrl}">Click to enter</a>
-	<hr/>
+	<hr />
 	2. <input type="button" value="getMessage"
-		onClick="javascript:getMessage()" />
+		onClick="javascript:util.requestSync('<c:url value='/study/getMessage.html'/>',null, 'post', result)" />
 </body>
 </html>
